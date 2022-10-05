@@ -1,4 +1,6 @@
 import { Users, UserInfo } from '@prisma/client';
 
-export type insertUser = Omit<Users, 'id'>;
-export type insertUserInfo = Omit<UserInfo, 'id'>;
+export type InsertUserType = Omit<Users, 'id'>;
+export type InsertUserInfoType = Omit<UserInfo, 'id'>;
+type Aux = InsertUserType & InsertUserInfoType;
+export type RegisterBody = Omit<Aux, 'userId'>;

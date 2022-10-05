@@ -24,7 +24,7 @@ model UserInfo {
   street String
   houseNumber Int
   complement String
-  cpf String
+  cpf String @unique
   user Users @relation(fields: [userId], references: [id])
   userId Int
   @@map("user-info")
