@@ -10,11 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
 model Users {
   id Int @id @default(autoincrement())
   email String @unique
   password String
   info UserInfo []
+  predictions SetPrediction []
   @@map("users")
 }
 
@@ -26,7 +28,39 @@ model UserInfo {
   complement String
   cpf String @unique
   user Users @relation(fields: [userId], references: [id])
-  userId Int
+  userId Int 
   @@map("user-info")
 }
 
+model Robots {
+  id Int @id @default(autoincrement())
+  name String
+  metrics RobotMetrics []
+  predictions SetPrediction []
+  @@map("robots")
+}
+
+model RobotMetrics {
+  id Int @id @default(autoincrement())
+  metrics String
+  robot Robots @relation(fields: [robotId], references: [id])
+  robotId Int
+  @@map("robot-metrics")
+}
+
+model SetPrediction {
+  id Int @id @default(autoincrement())
+  robot Robots @relation(fields: [robotId], references: [id])
+  user Users @relation(fields: [userId], references: [id])
+  robotId Int
+  userId Int
+  predicted Boolean @default(false)
+  @@map("set-prediction")
+}
+
+model Prediction {
+  id Int @id @default(autoincrement())
+  value String
+  worked Boolean
+  @@map("prediction")
+}
