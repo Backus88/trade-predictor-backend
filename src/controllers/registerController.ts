@@ -2,13 +2,13 @@ import { Response, Request } from 'express';
 import * as registerService from '../services/registerServices';
 import { InsertUserType, InsertUserInfoType } from '../types/authTypes';
 
-export async function register(req: Request, res: Response) {
+export default async function register(req: Request, res: Response) {
   const { body } = req;
+  const cryptedPass = await registerService.cryptUser(body.password);
   const dataUser: InsertUserType = {
     email: body.email,
-    password: body.password,
+    password: cryptedPass,
   };
-
   await registerService.checkEmail(body.email);
   const returnedDataUser = await registerService.createUser(dataUser);
   await registerService.checkIfCreated(returnedDataUser.email, body.email);

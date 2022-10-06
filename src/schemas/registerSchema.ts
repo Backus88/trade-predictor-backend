@@ -1,7 +1,7 @@
 import joi from 'joi';
 import { RegisterBody } from '../types/authTypes';
 
-export const registerSchem = joi.object<RegisterBody>({
+const registerSchema = joi.object<RegisterBody>({
   email: joi.string().email().required(),
   password: joi.string().min(4).max(128).required(),
   cep: joi
@@ -11,7 +11,7 @@ export const registerSchem = joi.object<RegisterBody>({
   street: joi.string().min(4).max(200).required(),
   houseNumber: joi
     .string()
-    .regex(/^([0-9]{4})$/)
+    .regex(/^([0-9]{0,4})$/)
     .required(),
   complement: joi.string().min(4).max(200).required(),
   cpf: joi
@@ -19,3 +19,5 @@ export const registerSchem = joi.object<RegisterBody>({
     .regex(/^([0-9]{11})$/)
     .required(),
 });
+
+export default registerSchema;

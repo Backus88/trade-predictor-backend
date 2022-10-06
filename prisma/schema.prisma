@@ -22,7 +22,7 @@ model UserInfo {
   id Int @id @default(autoincrement())
   cep String 
   street String
-  houseNumber Int
+  houseNumber String
   complement String
   cpf String @unique
   user Users @relation(fields: [userId], references: [id])

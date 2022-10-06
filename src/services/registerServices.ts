@@ -6,6 +6,7 @@ import {
 } from '../repositories/registerRepository';
 import { notPossibleOperation } from '../utils/errorMessages';
 import { InsertUserType, InsertUserInfoType } from '../types/authTypes';
+import { cryptInfo } from '../utils/cryptAndCompare';
 
 export async function checkEmail(email: string) {
   const data = await getUserByEmail(email);
@@ -16,6 +17,11 @@ export async function checkEmail(email: string) {
 
 export async function createUser(user: InsertUserType) {
   return insertUser(user);
+}
+
+export async function cryptUser(password: string) {
+  const hash = await cryptInfo(password);
+  return hash;
 }
 
 export async function checkIfCreated(data: string, returnedData: any) {
