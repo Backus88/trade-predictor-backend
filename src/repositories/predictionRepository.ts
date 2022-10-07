@@ -8,7 +8,7 @@ export async function insertSetPrediction(data: InsertSetPredictionType) {
   return client.setPredictions.create({ select: { id: true }, data });
 }
 export async function updateSetPrediction(id: number) {
-  return client.setPredictions.update({
+  return client.prediction.update({
     where: { id },
     data: { predicted: true },
   });
@@ -40,4 +40,8 @@ export async function getSetByUserAndRobot(userId: number, robotId: number) {
 
 export async function insertPrediction(data: InsertPredictionType) {
   return client.prediction.create({ data });
+}
+
+export async function getPredictionById(id: number) {
+  return client.prediction.findUnique({ where: { id } });
 }

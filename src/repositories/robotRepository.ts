@@ -16,3 +16,7 @@ export async function insertRobotMetrics(data: InsertRobotMetricsType) {
 export async function getRobotMetricsByRobotId(robotId: number) {
   return client.robotMetrics.findUnique({ where: { robotId } });
 }
+
+export async function getRobotById(id: number) {
+  return client.robots.findUnique({ where: { id } });
+}

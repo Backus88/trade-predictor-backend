@@ -54,7 +54,6 @@ model SetPredictions {
   user Users @relation(fields: [userId], references: [id])
   robotId Int
   userId Int
-  predicted Boolean @default(false)
   predictions Prediction[]
   @@unique([robotId,userId], name: "predictSet")
   @@map("set-predictions")
@@ -66,5 +65,6 @@ model Prediction {
   worked Boolean
   setPrediction SetPredictions @relation(fields: [setPredictionId], references: [id])
   setPredictionId Int
+  predicted Boolean @default(false)
   @@map("prediction")
 }
