@@ -16,7 +16,7 @@ model Users {
   email String @unique
   password String
   info UserInfo []
-  predictions SetPrediction []
+  predictions SetPredictions []
   @@map("users")
 }
 
@@ -34,9 +34,9 @@ model UserInfo {
 
 model Robots {
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   metrics RobotMetrics []
-  predictions SetPrediction []
+  predictions SetPredictions []
   @@map("robots")
 }
 
@@ -44,23 +44,27 @@ model RobotMetrics {
   id Int @id @default(autoincrement())
   metrics String
   robot Robots @relation(fields: [robotId], references: [id])
-  robotId Int
+  robotId Int @unique
   @@map("robot-metrics")
 }
 
-model SetPrediction {
+model SetPredictions {
   id Int @id @default(autoincrement())
   robot Robots @relation(fields: [robotId], references: [id])
   user Users @relation(fields: [userId], references: [id])
   robotId Int
   userId Int
   predicted Boolean @default(false)
-  @@map("set-prediction")
+  predictions Prediction[]
+  @@unique([robotId,userId], name: "predictSet")
+  @@map("set-predictions")
 }
 
 model Prediction {
   id Int @id @default(autoincrement())
   value String
   worked Boolean
+  setPrediction SetPredictions @relation(fields: [setPredictionId], references: [id])
+  setPredictionId Int
   @@map("prediction")
 }
