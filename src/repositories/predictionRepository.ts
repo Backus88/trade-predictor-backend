@@ -7,10 +7,17 @@ import {
 export async function insertSetPrediction(data: InsertSetPredictionType) {
   return client.setPredictions.create({ select: { id: true }, data });
 }
-export async function updateSetPrediction(id: number) {
+export async function updatePrediction(id: number) {
   return client.prediction.update({
     where: { id },
     data: { predicted: true },
+  });
+}
+
+export async function updateWorked(id: number) {
+  return client.prediction.update({
+    where: { id },
+    data: { worked: true },
   });
 }
 

@@ -35,3 +35,31 @@ export async function checkIfCreated(id: number) {
     throw notPossibleOperation('prediction not created!!');
   }
 }
+
+export async function checkId(id: number) {
+  const data = await predictionRepo.getPredictionById(id);
+  if (data === null) {
+    throw notFoundError('id');
+  }
+  return data;
+}
+
+export async function canUpdate(predicted: boolean) {
+  if (predicted === true) {
+    throw notPossibleOperation('because predict was already made!!');
+  }
+}
+
+export async function updatePrediction(id: number) {
+  await predictionRepo.updatePrediction(id);
+}
+
+export async function updateWorked(
+  id: number,
+  value: string,
+  predictedValue: string
+) {
+  if (value === predictedValue) {
+    await predictionRepo.updateWorked(id);
+  }
+}

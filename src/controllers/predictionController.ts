@@ -14,7 +14,6 @@ export async function insertPrediction(req: Request, res: Response) {
   }
   const { payload } = res.locals;
   const { userId } = payload;
-  console.log(payload);
   const returnedId = await predictionService.checkPairs(userId, robotId);
   if (returnedId === false) {
     const setPredictionData: InsertSetPredictionType = {
@@ -38,4 +37,15 @@ export async function insertPrediction(req: Request, res: Response) {
   const testId = await predictionService.createPrediction(predictionData);
   await predictionService.checkIfCreated(testId.id);
   res.sendStatus(201);
+}
+
+export async function predict(req: Request, res: Response) {
+  const { id } = req.params;
+  const { value } = req.body;
+  const predictId = parseInt(id, 10);
+  const data = await predictionService.checkId(predictId);
+  await predictionService.canUpdate(data?.predicted);
+  await predictionService.updatePrediction(predictId);
+  await predictionService.updateWorked(predictId, value, data.value);
+  res.sendStatus(200);
 }
