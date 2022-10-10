@@ -52,3 +52,22 @@ export async function insertPrediction(data: InsertPredictionType) {
 export async function getPredictionById(id: number) {
   return client.prediction.findUnique({ where: { id } });
 }
+
+export async function getPredictionsByUserId(userId: number, option: boolean) {
+  return client.users.findUnique({
+    select: {
+      predictions: {
+        where: { userId },
+        select: {
+          robotId: true,
+          predictions: { where: { predicted: option } },
+        },
+      },
+    },
+    where: { id: userId },
+  });
+}
+
+export async function checkUserId(id: number) {
+  return client.users.findUnique({ where: { id } });
+}

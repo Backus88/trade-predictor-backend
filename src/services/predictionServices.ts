@@ -63,3 +63,17 @@ export async function updateWorked(
     await predictionRepo.updateWorked(id);
   }
 }
+export async function checkUserId(id: number) {
+  const data = await predictionRepo.checkUserId(id);
+  if (!data) {
+    throw notFoundError('user');
+  }
+}
+
+export async function showPredictions(id: number, option: boolean) {
+  const data = await predictionRepo.getPredictionsByUserId(id, option);
+  if (data === null) {
+    return 0;
+  }
+  return data.predictions[0];
+}

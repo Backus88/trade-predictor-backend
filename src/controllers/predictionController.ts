@@ -49,3 +49,19 @@ export async function predict(req: Request, res: Response) {
   await predictionService.updateWorked(predictId, value, data.value);
   res.sendStatus(200);
 }
+
+export async function openedPredictions(req: Request, res: Response) {
+  const { payload } = res.locals;
+  const { userId } = payload;
+  await predictionService.checkUserId(userId);
+  const data = await predictionService.showPredictions(userId, false);
+  res.status(200).send(data);
+}
+
+export async function closedPredictions(req: Request, res: Response) {
+  const { payload } = res.locals;
+  const { userId } = payload;
+  await predictionService.checkUserId(userId);
+  const data = await predictionService.showPredictions(userId, true);
+  res.status(200).send(data);
+}

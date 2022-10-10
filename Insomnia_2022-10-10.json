@@ -1,0 +1,394 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-10-10T19:26:14.166Z",
+  "__export_source": "insomnia.desktop.app:v2022.6.0",
+  "resources": [
+    {
+      "_id": "req_70fefc3996da468ca4b0af2f61aa7ca7",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665271896653,
+      "created": 1665223186175,
+      "url": "https://robot-predict.herokuapp.com/test",
+      "name": "flask-heroku",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"ATR\": 30.623472,\n\t\"BHB\": 0,\n\t\"MACD\": 20.100567,\n\t\"ADXN\": 19.218142,\n\t\"ADXP\": 21.357646,\n\t\"DPO\": 30.5,\n\t\"STC\": 99.699214\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665223186175,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "parentId": "wrk_674c2a155b904f47bf18bc6f5cf9a36f",
+      "modified": 1665018147125,
+      "created": 1665018147125,
+      "name": "robot-preditor",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1665018147125,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_674c2a155b904f47bf18bc6f5cf9a36f",
+      "parentId": null,
+      "modified": 1659935857447,
+      "created": 1659935857447,
+      "name": "New Document",
+      "description": "",
+      "scope": "design",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_0212d84d41194e1491ac9b8492656ec0",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665271904027,
+      "created": 1665271000367,
+      "url": "https://2tjpaa16d0.execute-api.us-east-1.amazonaws.com/predict",
+      "name": "getAws",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"ATR\": 30.623472,\n\t\"BHB\": 0,\n\t\"MACD\": 20.100567,\n\t\"ADXN\": 19.218142,\n\t\"ADXP\": 21.357646,\n\t\"DPO\": 30.5,\n\t\"STC\": 99.699214\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665211244468.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_973237e8206e4ac68f27245d6d55e41f",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665199408658,
+      "created": 1665199302762,
+      "url": "http://localhost:5000/prediction/opened",
+      "name": "openedPrediction",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_c0c7fc4b815449e8afe6375f78409e76",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY2NTE5NjUzMSwiZXhwIjoxNjY1MjAzNzMxfQ.2VJNkpQo8ONWMnJaRQdp8DXnRSWfir5DIFB1uRC61Xw",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665199302762,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_07ea943245b54c028369cc2f25722eee",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665199413277,
+      "created": 1665199371443,
+      "url": "http://localhost:5000/prediction/closed",
+      "name": "closedPrediction",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_c0c7fc4b815449e8afe6375f78409e76",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY2NTE5NjUzMSwiZXhwIjoxNjY1MjAzNzMxfQ.2VJNkpQo8ONWMnJaRQdp8DXnRSWfir5DIFB1uRC61Xw",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665197758960,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3a9810e7813d4714899f1c4f8de4a781",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665199343201,
+      "created": 1665196215158,
+      "url": "http://localhost:5000/prediction/predict/1",
+      "name": "predict",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"value\": \"STAY\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_9b785e299a384c799c26152505d5322f",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY2NTE5NjUzMSwiZXhwIjoxNjY1MjAzNzMxfQ.2VJNkpQo8ONWMnJaRQdp8DXnRSWfir5DIFB1uRC61Xw",
+          "description": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_e624dc7e70814c01a0460b658e6b4acb"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665196215158,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2e7adb463f9348309a155fd2e57e65e8",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665270971382,
+      "created": 1665213856699,
+      "url": "http://127.0.0.1:5000/test",
+      "name": "flask-api",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"ATR\": 30.623472,\n\t\"BHB\": 0,\n\t\"MACD\": 20.100567,\n\t\"ADXN\": 19.218142,\n\t\"ADXP\": 21.357646,\n\t\"DPO\": 30.5,\n\t\"STC\": 99.699214\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665185446054,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7a487ed8484c476faee0c55a5a22d05a",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665374058650,
+      "created": 1665174676950,
+      "url": "http://localhost:5000/prediction",
+      "name": "prediction",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"robotId\": 1,\n\t\"value\": \"STAY\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_197b193c36f941e995bce45f2ff7e1fb"
+        },
+        {
+          "id": "pair_8800248eeb2a4da2974578d4485b908c",
+          "name": "Authorization",
+          "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY2NTE3NDk3NSwiZXhwIjoxNjY1MTgyMTc1fQ.FvzkKK1FjXHpssrCaykxHk0_lmr5ZQE582qEifGzsRg",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665174676950,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_99b76ed2f2d14092851d6066862428a9",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665375037433,
+      "created": 1664505786441,
+      "url": "https://bvxbqw5401.execute-api.us-east-1.amazonaws.com/Beta",
+      "name": "RequestAWS",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "",
+        "text": "{\"data\":\"13.49,22.3,86.91,561.0,0.08752,0.07697999999999999,0.047510000000000004,0.033839999999999995,0.1809,0.057179999999999995,0.2338,1.3530000000000002,1.735,20.2,0.004455,0.013819999999999999,0.02095,0.01184,0.01641,0.001956,15.15,31.82,99.0,698.8,0.1162,0.1711,0.2282,0.1282,0.2871,0.06917000000000001\"}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "text/plain",
+          "id": "pair_0c79526d34b2438980e3b8bdb602987b"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665018155437,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f5bca874f10b4888aef6e8da3f3104e5",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665363397830,
+      "created": 1665009478171,
+      "url": "http://localhost:5000/register",
+      "name": "register",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"Velda_Wisozk@gmail.com\",\n\t\"password\": \"12345\",\n\t\"cep\": \"77329625\",\n\t\"street\": \"Lou Shoals\",\n\t\"houseNumber\": \"158\",\n\t\"complement\": \"626 Stokes Viaduct\",\n\t\"cpf\": \"23313443086\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665018155387,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c6cf8bc820cf453797937e61a8f553ab",
+      "parentId": "fld_6c9a3e463a23425fa6acd01ee91406b4",
+      "modified": 1665196529369,
+      "created": 1665018155337,
+      "url": "http://localhost:5000/login",
+      "name": "login",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"Velda_Wisozk@gmail.com\",\n\t\"password\": \"12345\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_416ea12d7816497299a34ccddbb46c7d"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1665018155337,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_02ddb318210948a45d62d95ccb4ef4ebb3887364",
+      "parentId": "wrk_674c2a155b904f47bf18bc6f5cf9a36f",
+      "modified": 1659935857462,
+      "created": 1659935857462,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1659935857462,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_02ddb318210948a45d62d95ccb4ef4ebb3887364",
+      "parentId": "wrk_674c2a155b904f47bf18bc6f5cf9a36f",
+      "modified": 1659935857465,
+      "created": 1659935857465,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_299c8905901540c98461be35270dfc0c",
+      "parentId": "wrk_674c2a155b904f47bf18bc6f5cf9a36f",
+      "modified": 1665342834756,
+      "created": 1659935857458,
+      "fileName": "New Document",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "uts_32a81b8a06674ba68cbac4f9b6e2d334",
+      "parentId": "wrk_674c2a155b904f47bf18bc6f5cf9a36f",
+      "modified": 1659935857470,
+      "created": 1659935857470,
+      "name": "Example Test Suite",
+      "_type": "unit_test_suite"
+    }
+  ]
+}
